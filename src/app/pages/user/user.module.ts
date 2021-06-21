@@ -12,6 +12,8 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 
@@ -29,6 +31,8 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
     NzGridModule,
     NzTypographyModule,
     NzMessageModule,
+    NzTableModule,
+    NzPopconfirmModule,
     NzModalModule,
     NzTagModule
   ],

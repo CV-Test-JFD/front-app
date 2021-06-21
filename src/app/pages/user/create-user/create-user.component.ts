@@ -31,6 +31,21 @@ export class CreateUserComponent implements OnInit {
       this.userForm.controls[i].markAsDirty();
       this.userForm.controls[i].updateValueAndValidity();
     }
+    if (this.userForm.valid) {
+      let user: IUser = {
+        'name': this.userForm.value.fullName,
+        'password': this.userForm.value.password,
+        'email': this.userForm.value.email
+      };
+
+
+      this.userService.createUser(user)
+        .subscribe(res => {
+          this.message.success(`User : ${res.body.name} successfully created`)
+        }, err => {
+          this.message.error(`Error: ${err.message} `)
+        })
+    }
 
   }
 
