@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +18,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 
 @NgModule({
-  declarations: [UserComponent, CreateUserComponent],
+  declarations: [UserComponent, ManageUserComponent, CreateUserComponent],
   imports: [
     UserRoutingModule,
     CommonModule,
@@ -35,6 +36,6 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
     NzModalModule,
     NzTagModule
   ],
-  exports: [CreateUserComponent]
+  exports: [ManageUserComponent, CreateUserComponent]
 })
 export class UserModule { }

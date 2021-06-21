@@ -1,0 +1,68 @@
+<nz-table #basicTable [nzData]="users">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of basicTable.data">
+            <td>{{ data.id }}</td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.email }}</td>
+            <td>
+                <a nz-popconfirm nzPopconfirmTitle="Are you sure delete this user?" nzPopconfirmPlacement="bottom"
+                    (nzOnConfirm)="confirm(data)" (nzOnCancel)="cancel()">
+                    <button nz-button nzType="danger" [nzSize]="size" nzShape="round">Delete</button>
+                </a>
+                <a style="margin-left: 1rem;" (click)="view(data)">View</a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
+
+<nz-modal [(nzVisible)]="isModalVisible" nzTitle="Profile details" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <div nz-row>
+            <div nz-col nzSpan="15" nzOffset="5">
+                <div *ngIf="selectedUser; else noData">
+                    <div nz-row>
+                        <div nz-col nzSpan="10">
+                            <h5 nz-typography>User ID:</h5>
+                        </div>
+                        <div nz-col nzSpan="10">
+                            <nz-tag [nzColor]="'blue'">{{selectedUser.id}}</nz-tag>
+                        </div>
+                    </div>
+                    <div nz-row>
+                        <div nz-col nzSpan="10">
+                            <h5 nz-typography>User Name:</h5>
+                        </div>
+                        <div nz-col nzSpan="10">
+                            <nz-tag [nzColor]="'blue'">{{selectedUser.name}}</nz-tag>
+                        </div>
+                    </div>
+                    <div nz-row>
+                        <div nz-col nzSpan="10">
+                            <h5 nz-typography>Email:</h5>
+                        </div>
+                        <div nz-col nzSpan="10">
+                            <nz-tag [nzColor]="'blue'">{{selectedUser.email}}</nz-tag>
+                        </div>
+                    </div>
+                    <div nz-row>
+                        <div nz-col nzSpan="10">
+                            <h5 nz-typography>Password:</h5>
+                        </div>
+                        <div nz-col nzSpan="10">
+                            <nz-tag [nzColor]="'red'">{{selectedUser.password}}</nz-tag>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</nz-modal>
+<ng-template #noData>No data available</ng-template>
