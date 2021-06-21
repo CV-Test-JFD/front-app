@@ -1,0 +1,36 @@
+<div nz-row>
+
+    <div nz-col nzSpan="16" nzOffset="3">
+        <nz-card style="width:100%">
+            <h2 nz-typography style="text-align:center">Create User</h2>
+            <form nz-form [formGroup]="userForm" class="login-form" (ngSubmit)="submitForm()">
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your full name!">
+                        <nz-input-group nzPrefixIcon="user">
+                            <input type="text" nz-input formControlName="fullName" placeholder="Full name" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your correct email!">
+                        <nz-input-group nzPrefixIcon="mail">
+                            <input type="email" nz-input formControlName="email" placeholder="someone@example.com" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your Password!">
+                        <nz-input-group nzPrefixIcon="lock">
+                            <input type="password" nz-input formControlName="password" placeholder="Password" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <button style="width:100%" nz-button class="login-form-button login-form-margin"
+                    [nzType]="'primary'">Create user</button>
+            </form>
+
+        </nz-card>
+    </div>
+
+</div>
